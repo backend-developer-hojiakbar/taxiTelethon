@@ -26,7 +26,6 @@ async def main():
 
     @client.on(events.NewMessage(chats=[group.id for group in groups]))  # Guruhlar avtomatik aniqlanadi
     async def handler(event):
-        print(f"Yangi xabar ({event.chat.title}): {event.raw_text}")  # Guruh nomini ko'rsatadi
         message_text = event.raw_text.lower()  # Xabarni kichik harflarga aylantiramiz
         if any(keyword in message_text for keyword in keywords):  # Agar kalit so'z topilsa
             sender = await event.get_sender()  # Xabar yuboruvchining ma'lumotlarini olamiz
